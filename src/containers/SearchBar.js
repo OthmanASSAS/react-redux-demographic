@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCountries } from "../actions";
+import { getCountries,getMortality } from "../actions/index.js";
 
 class SearchBar extends Component {
   state = { selectedCountry: "France" };
@@ -13,6 +13,7 @@ class SearchBar extends Component {
   search = e => {
       
     this.setState({ selectedCountry: e.target.value });
+    this.props.getMortality(this.state.selectedCountry)
   };
 
   renderSelectBox = () => {
@@ -46,5 +47,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { getCountries }
+  { getCountries, getMortality }
 )(SearchBar);
