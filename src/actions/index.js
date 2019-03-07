@@ -1,5 +1,7 @@
 import { GET_COUNTRIES, ERROR_GET_COUNTRIES, GET_MORTALITY } from "./types.js";
 import axios from "axios";
+import {ColumnBar} from 'react-chartkick'
+window.Chart = require('chart.js')
 
 const API_END_POINT = "http://api.population.io:80/1.0/";
 const DEFAULT_PARAM = "25/today";
