@@ -12,7 +12,8 @@ class SearchBar extends Component {
 
   search = e => {
       
-    this.setState({ selectedCountry: e.target.value }, this.props.getMortality(this.state.selectedCountry));
+    this.setState({ selectedCountry: e.target.value });
+    this.props.getMortality(this.state.selectedCountry)
    
   };
 

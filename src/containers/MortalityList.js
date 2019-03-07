@@ -4,15 +4,21 @@ import { getMortality } from "../actions";
 import { connect } from "react-redux";
 
 class MortalityList extends Component {
+  
+  componentDidMount = () => {
+   const defaultCountry = "France";
+    this.props.getMortality(defaultCountry);
+  };
+
   renderMortalities = () => {
-      const {mortalities}=this.props
-      return mortalities.map((data)=>{
-          return <MortalityListItem key={data.country}/>
-      })
+    const { mortalities } = this.props;
+    return mortalities.map(data => {
+      return <MortalityListItem key={data.country} mortality={data} />;
+    });
   };
 
   render() {
-    console.log("mortalities", this.props.mortalities);
+   
     return (
       <div>
         <table className="table">
@@ -25,7 +31,6 @@ class MortalityList extends Component {
           </thead>
           <tbody>{this.renderMortalities()}</tbody>
         </table>
-       
       </div>
     );
   }
